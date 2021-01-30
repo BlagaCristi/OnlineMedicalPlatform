@@ -29,9 +29,9 @@ Run the sql script from the **database setup** folder in order to create the nee
 # Client start
   * Import the client project in Webstorm
   * Run in terminal:
-       * npm install
+       * **npm install**
   * Run in terminal:
-       * npm run start
+       * **npm run start**
 
 # Documentation
 For a comprehensive description of the project's architecture, together with the significant deployment and database diagrams,
