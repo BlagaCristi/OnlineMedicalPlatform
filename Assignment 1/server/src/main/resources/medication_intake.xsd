@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://health.ds/soa/soa-endpoints"
+           targetNamespace="http://health.ds/soa/soa-endpoints" elementFormDefault="qualified">
+
+    <xs:element name="getMedicationIntakeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getMedicationIntakeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="medicationIntakeList" type="tns:medicationIntakeList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="medicationIntakeList">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="medicationIntake" type="tns:medicationIntake"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="medicationIntake">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="medicationName" type="xs:string"/>
+            <xs:element name="isTaken" type="xs:string"/>
+            <xs:element name="patientId" type="xs:int"/>
+            <xs:element name="intakeDate" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

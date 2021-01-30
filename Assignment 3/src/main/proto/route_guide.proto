@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.health";
+option java_outer_classname = "HealthProto";
+option objc_class_prefix = "RTG";
+
+package health;
+
+// Interface exported by the server.
+service HealthService {
+
+    rpc ReceiveMessage (PatientMessage) returns (Empty) {
+    }
+
+    rpc StreamMedicationPlans (PatientIdMessage) returns (stream MedicationPlanMessage) {
+    }
+}
+
+message PatientIdMessage {
+    int32 patientId = 1;
+}
+
+message PatientMessage {
+    int32 patientId = 1;
+    string medicationName = 2;
+    string isTaken = 3;
+}
+
+message MedicationPlanMessage {
+    int32 id = 1;
+    string startDate = 2;
+    string endDate = 3;
+    int32 hourInDay = 4;
+    string name = 5;
+    string dosage = 6;
+}
+
+message Empty {
+
+}
